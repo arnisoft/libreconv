@@ -99,7 +99,7 @@ module Libreconv
         target_tmp_file = File.join(
           target_path,
           File.basename(@escaped_source_path, '.*') + '.' +
-            File.basename(@convert_to, ':*')
+            @convert_to.to_s.split(':').first # File.basename(@convert_to, ':*')
         )
         FileUtils.cp target_tmp_file, @target
       end
